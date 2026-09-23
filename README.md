@@ -16,6 +16,14 @@
 </div>
 
 <p align="center">
+  <a href="https://github.com/sgor-ai/Item-sucker/releases/latest">
+    <img src="https://img.shields.io/badge/Download-latest%20release-35d07f?logo=github&logoColor=white" alt="Download the latest ItemSucker release">
+  </a>
+</p>
+
+<p align="center"><strong>Click the badge above to download the latest release.</strong></p>
+
+<p align="center">
   <img src="docs/images/itemsucker-overview.svg" alt="ItemSucker collection device and overview" width="900">
 </p>
 
