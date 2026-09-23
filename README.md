@@ -1,200 +1,213 @@
+<div align="center">
+
 # ItemSucker
 
-<p align="center">
-  <img src="src/main/resources/icon.png" alt="ItemSucker icon" width="128" height="128">
-</p>
+<img src="src/main/resources/icon.png" alt="ItemSucker icon" width="128">
+
+**Automatically collect matching dropped items in Minecraft.**
+
+[Created by **sgor**](https://github.com/sgor-ai)
+
+[![Minecraft](https://img.shields.io/badge/Minecraft-26.2-62b47a?logo=minecraft&logoColor=white)](https://www.minecraft.net/)
+[![Fabric](https://img.shields.io/badge/Fabric-26.2-DBD0B4?logo=fabric&logoColor=111111)](https://fabricmc.net/)
+[![Java](https://img.shields.io/badge/Java-25%2B-orange?logo=openjdk&logoColor=white)](https://adoptium.net/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+</div>
 
 <p align="center">
-  <strong>Automatic dropped-item collection for Fabric 26.2</strong><br>
-  Select what to collect, then let ItemSucker move to matching drops.
+  <img src="docs/images/itemsucker-overview.svg" alt="ItemSucker collection device and overview" width="900">
 </p>
+
+<p align="center"><strong>Choose what to collect, choose how to move, and let ItemSucker handle the pickup.</strong></p>
+
+> **ItemSucker is a client-side Fabric mod for Minecraft 26.2.** It detects
+> dropped item entities within a fixed 64-block radius, applies your filter,
+> moves close enough to matching items, and optionally returns to where the
+> collection session started.
+
+## Overview
+
+ItemSucker continuously checks nearby dropped items and compares them with the
+active filter:
+
+- **Whitelist** collects only the items you select.
+- **Blacklist** collects everything except the items you select.
+- **Teleport** moves instantly to each matching item.
+- **Baritone** uses optional path-based movement instead.
+
+The mod is designed for a clear, predictable flow:
 
 <p align="center">
-  <img src="docs/images/itemsucker-overview.svg" alt="ItemSucker overview" width="900">
+  <img src="docs/images/itemsucker-flow.svg" alt="ItemSucker workflow from detection to collection" width="900">
 </p>
 
-<p align="center">
-  <a href="https://www.minecraft.net/"><img src="https://img.shields.io/badge/Minecraft-26.2-4b7bec?logo=minecraft&logoColor=white" alt="Minecraft 26.2"></a>
-  <a href="https://fabricmc.net/"><img src="https://img.shields.io/badge/Fabric-client-20232a?logo=fabric" alt="Fabric client mod"></a>
-  <a href="https://adoptium.net/"><img src="https://img.shields.io/badge/Java-25-e76f00?logo=openjdk&logoColor=white" alt="Java 25"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2f80ed.svg" alt="MIT license"></a>
-</p>
-
-## What ItemSucker does
-
-ItemSucker is a **client-side** Fabric mod. It searches for dropped item entities within a fixed **64-block radius**, applies your whitelist or blacklist, and moves close enough to collect the items.
-
-The collection device shown in the icon represents the complete loop:
-
-1. **Detect** dropped items around the player.
-2. **Filter** them using the selected item rules.
-3. **Move** using Teleport mode or optional Baritone pathing.
-4. **Collect** the items and optionally return to the starting position.
-
-<p align="center">
-  <img src="docs/images/itemsucker-flow.svg" alt="ItemSucker detection, filtering, movement and collection flow" width="900">
-</p>
+The search radius is intentionally fixed at **64 blocks**. Internal checks for
+grounded items, pickup delay and teleport collisions remain enabled; they are
+not exposed as unsafe runtime switches.
 
 ## Demo
 
-The GIF below contains the complete supplied screen recording from start to finish. It shows ItemSucker enabled, matching drops being selected, movement to the items, and the collection result.
+This is the complete supplied screen recording from beginning to end:
 
 ![Complete ItemSucker demonstration](docs/images/itemsucker-demo.gif)
 
 ## Features
 
-- Fixed 64-block search radius.
-- **Whitelist** mode: collect only selected items.
-- **Blacklist** mode: collect everything except selected items.
-- **Teleport** mode: instant movement to each matching drop.
-- **Baritone** mode: optional path-based movement that walks to matching drops.
-- Stable green/red target highlighting in the item-selection screen.
-- Searchable, scrollable item grid.
+- Fixed 64-block collection radius.
+- Whitelist and blacklist item filters.
+- Teleport mode with stable target selection and collision checks.
+- Optional Baritone mode for path-based movement.
+- Searchable and scrollable item-selection GUI.
+- Stable green/red selection highlighting.
 - Optional return to the starting position after a collection session.
-- Optional end-of-session pickup summary.
-- Mod Menu configuration screen when Mod Menu is installed.
-- Keybinds for opening the GUI and toggling the mod.
-- Settings saved in `config/itemsucker.json`.
+- Optional end-of-session collection summary.
+- Mod Menu configuration screen.
+- Keybind for opening the GUI and configurable toggle keybind.
+- English and Italian translations.
+- Client-only: no server-side installation is required.
 
 ## Requirements
 
-### Required
+- Minecraft **26.2**
+- Fabric Loader **0.19.0 or newer**
+- Fabric API for Minecraft 26.2
+- Java **25 or newer**
 
-| Component | Version |
-| --- | --- |
-| Minecraft Java Edition | `26.2` |
-| Fabric Loader | `0.19.3` or newer |
-| Fabric API | A build matching Minecraft `26.2` |
-| Java | `25` |
-| ItemSucker | `itemsucker-26.2-1.0.0.jar` |
+Optional:
 
-### Optional
+- **Baritone Meteor** for `/itemsucker move baritone`
+- **Mod Menu** for opening ItemSucker from the Mods screen
 
-| Component | Needed for |
-| --- | --- |
-| Baritone Meteor | `/itemsucker move baritone` |
-| Mod Menu | Opening ItemSucker settings from the Mods menu |
-
-ItemSucker starts without Baritone or Mod Menu. If Baritone is unavailable, Baritone mode cannot be selected and Teleport remains available.
+ItemSucker starts without either optional mod. If Baritone is not installed,
+Teleport mode remains available and Baritone mode cannot be selected.
 
 ## Installation
 
-1. Install Fabric Loader for Minecraft `26.2`.
-2. Install Fabric API for the same Minecraft version.
-3. Open the Minecraft `mods` folder:
-   - **Windows:** press `Win + R`, enter `%appdata%\.minecraft\mods`, then press Enter.
+1. Install Fabric Loader for Minecraft 26.2.
+2. Install the matching Fabric API version.
+3. Download or build `itemsucker-26.2-1.0.0.jar`.
+4. Put the ItemSucker JAR in your Minecraft `mods` folder:
+   - **Windows:** `%appdata%\.minecraft\mods`
    - **Linux:** `~/.minecraft/mods`
    - **macOS:** `~/Library/Application Support/minecraft/mods`
-4. Copy `build/libs/itemsucker-26.2-1.0.0.jar` into that folder, or use the JAR from a release.
-5. For Baritone movement, copy a compatible `baritone-meteor` JAR into the same folder.
-6. For Mod Menu integration, copy a compatible Mod Menu JAR into the same folder.
-7. Launch the Fabric profile for Minecraft `26.2`.
+5. If you want Baritone movement, put a compatible Baritone Meteor JAR in the
+   same folder.
+6. If you want the Mods-menu configuration screen, install a compatible Mod
+   Menu JAR.
+7. Launch the Fabric profile for Minecraft 26.2.
 
-Do **not** copy the source folder into `mods`; Minecraft loads the compiled JAR.
+The source folder itself does not belong in `.minecraft/mods`; Minecraft loads
+the compiled JAR.
 
-## First launch
+## Usage
+
+### First setup
 
 1. Enter a world where automated movement is allowed.
-2. Run `/itemsucker gui`, or press **M**, to open the item selector.
-3. Choose **Whitelist** to collect only selected items, or **Blacklist** to exclude selected items.
-4. Search for an item and click it to select or deselect it.
+2. Open the selector with `/itemsucker gui` or press **M**.
+3. Choose **Whitelist** or **Blacklist**.
+4. Search for items and click them to select or deselect them.
 5. Press **Done** to save.
-6. Choose a movement mode:
+6. Choose a movement mode.
+7. Enable ItemSucker with `/itemsucker on`.
 
-   ```text
-   /itemsucker move teleport
-   ```
-
-   or, with Baritone installed:
-
-   ```text
-   /itemsucker move baritone
-   ```
-
-7. Enable the module:
-
-   ```text
-   /itemsucker on
-   ```
-
-The collection radius is intentionally fixed at 64 blocks. Ground, pickup-delay and teleport-collision checks remain internal safety checks and are not user commands.
-
-## Commands
-
-All commands are client-side:
+### Commands
 
 ```text
-/itemsucker                    Toggle the module
+/itemsucker                    Toggle ItemSucker
 /itemsucker on                 Enable collection
 /itemsucker off                Disable collection
 /itemsucker toggle             Toggle collection
-/itemsucker gui                Open the item selector
+/itemsucker gui                Open the item-selection GUI
 /itemsucker mode whitelist     Collect only selected items
 /itemsucker mode blacklist     Exclude selected items
 /itemsucker move teleport      Use instant movement
 /itemsucker move baritone      Use Baritone pathing
-/itemsucker return on          Return after the session
+/itemsucker return on          Return after the collection session
 /itemsucker return off         Stay at the last collected item
 /itemsucker return toggle      Toggle return-to-origin
 /itemsucker notify on          Show collection summaries
 /itemsucker notify off         Hide collection summaries
 ```
 
-The old `ground`, `pickupable`, `collision-check` and configurable `range` commands are intentionally not part of the current interface.
+The old `ground`, `pickupable`, `collision-check` and configurable `range`
+commands are intentionally not part of the current interface.
 
-## Movement modes
+### Keybinds
+
+- **M** opens the ItemSucker item-selection screen.
+- The toggle key is unassigned by default and can be configured under
+  **Options → Controls**.
+
+### Movement modes
 
 <p align="center">
-  <img src="docs/images/itemsucker-modes.svg" alt="Comparison of ItemSucker Teleport and Baritone modes" width="900">
+  <img src="docs/images/itemsucker-modes.svg" alt="ItemSucker Teleport and Baritone movement modes" width="900">
 </p>
 
-### Teleport
+**Teleport** moves the local player directly to each matching item. A target
+is handled once instead of causing repeated per-tick repositioning.
 
-Teleport mode places the local player at each matching item. The same target is not repeatedly teleported to, which keeps movement stable. Collision checks remain enabled.
+**Baritone** sends matching item targets to Baritone and lets it path to them.
+The goal is refreshed when targets change or when a periodic refresh is needed.
+Baritone mode requires a compatible Baritone installation.
 
-### Baritone
+## At a glance
 
-Baritone mode sends matching item targets to Baritone and lets it path to them. Goals are refreshed only when targets change or when a periodic refresh is needed. When return-to-origin is enabled, Baritone is asked to return after the collection session.
-
-Both modes automate movement. Always check the rules of the world or server before using them.
-
-## Keybinds and Mod Menu
-
-- **M:** open the ItemSucker item-selection screen.
-- **Toggle key:** unassigned by default; assign it under **Options → Controls**.
-- **Mod Menu:** if installed, open Minecraft's Mods menu and select ItemSucker.
+| What you want | How ItemSucker helps |
+| --- | --- |
+| Collect only specific drops | Use Whitelist mode |
+| Ignore unwanted drops | Use Blacklist mode |
+| Collect within a large area | Searches a fixed 64-block radius |
+| Move instantly | Select Teleport mode |
+| Walk to items naturally | Select Baritone mode |
+| Return after collecting | Enable return-to-origin |
+| See what was collected | Enable pickup notifications |
 
 ## Configuration
 
-The file below is created automatically:
+Settings are saved automatically to:
 
 ```text
 .minecraft/config/itemsucker.json
 ```
 
-The GUI and commands control the supported settings. The collection radius is always 64 blocks; the internal safety checks are deliberately kept enabled.
+The GUI and commands control the supported settings. The collection radius is
+always 64 blocks, and the internal safety checks remain enabled by design.
 
-## Build from source
+## Building from source
 
-This repository includes the Gradle wrapper:
+Clone the repository and run the Gradle wrapper:
+
+```bash
+git clone https://github.com/sgor-ai/Item-sucker.git
+cd Item-sucker
+./gradlew clean build
+```
+
+On Windows:
 
 ```powershell
 .\gradlew.bat clean build
 ```
 
-The output JAR is:
+The compiled mod is written to:
 
 ```text
 build/libs/itemsucker-26.2-1.0.0.jar
 ```
 
-To launch a development client with the local Baritone and Mod Menu dependencies:
+To launch a development client with the local Baritone and Mod Menu
+dependencies:
 
 ```powershell
 .\gradlew.bat runClient
 ```
 
-The `run/` directory and build output are ignored by Git.
+The first build downloads Minecraft, Fabric and Loom dependencies. The local
+JARs in `libs/` are used for the reproducible development environment and are
+not bundled into ItemSucker.
 
 ## Project layout
 
@@ -202,13 +215,51 @@ The `run/` directory and build output are ignored by Git.
 src/main/java/com/itemsucker/  Core logic, commands, GUI and integrations
 src/main/resources/             Fabric metadata, icon and translations
 libs/                           Local development dependencies
-docs/images/                    README illustrations and complete demo GIF
+docs/images/                    README artwork and complete demo GIF
 ```
 
-## Safety and server policy
+## Responsible use
 
-Teleport mode changes the local player position instantly. Baritone mode automates pathing. Either mode may be disallowed by multiplayer server rules or trigger anti-cheat systems. Use ItemSucker only in single-player or where automation is explicitly permitted. The authors are not responsible for kicks, bans, lost items or other server-side consequences.
+Teleport mode changes the local player position instantly. Baritone mode
+automates pathing. Both modes may be disallowed by multiplayer server rules or
+trigger anti-cheat systems. Use ItemSucker only in single-player or where
+automation is explicitly permitted. The authors are not responsible for kicks,
+bans, lost items or other server-side consequences.
+
+## Troubleshooting
+
+### ItemSucker does not appear in Minecraft
+
+Confirm that the JAR is in the correct `mods` folder, that you launched the
+Fabric profile, and that Minecraft, Fabric API and Fabric Loader all match
+version 26.2.
+
+### Baritone mode cannot be selected
+
+Install a compatible Baritone Meteor JAR in the same `mods` folder and restart
+Minecraft. Teleport mode does not require Baritone.
+
+### The GUI does not open
+
+Use `/itemsucker gui` from inside a world. If you want the **M** key, check
+**Options → Controls** for conflicts and assign the ItemSucker keybind.
+
+### The build cannot find Java 25
+
+Install a Java 25 JDK and make sure `JAVA_HOME` points to it. Minecraft 26.2
+requires Java 25 for this project.
+
+## Contributing
+
+Issues and pull requests are welcome. Include the Minecraft version, Fabric
+Loader version, relevant log output and reproducible steps when reporting a
+problem.
+
+## Creator
+
+ItemSucker is created and maintained by [sgor](https://github.com/sgor-ai).
 
 ## License
 
-ItemSucker is released under the [MIT License](LICENSE). It is not affiliated with Mojang, Microsoft, Fabric, Meteor or Baritone.
+ItemSucker is released under the [MIT License](LICENSE). It is not affiliated
+with Mojang, Microsoft, Fabric, Meteor or Baritone.
