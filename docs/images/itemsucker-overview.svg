@@ -1,10 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420">
-  <defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#111827"/><stop offset="1" stop-color="#2563eb"/></linearGradient></defs>
-  <rect width="1200" height="420" rx="24" fill="url(#g)"/>
-  <circle cx="150" cy="210" r="82" fill="#38bdf8" opacity=".18"/><circle cx="150" cy="210" r="52" fill="#38bdf8" opacity=".3"/>
-  <path d="M150 125v170M65 210h170" stroke="#e0f2fe" stroke-width="8" opacity=".9"/>
-  <text x="285" y="150" fill="#fff" font-family="Segoe UI,Arial" font-size="54" font-weight="700">ItemSucker</text>
-  <text x="288" y="205" fill="#bfdbfe" font-family="Segoe UI,Arial" font-size="25">Smart item collection for Fabric 26.2</text>
-  <text x="288" y="255" fill="#dbeafe" font-family="Segoe UI,Arial" font-size="21">Teleport or Baritone pathing · whitelist / blacklist · ModMenu GUI</text>
-  <rect x="288" y="292" width="180" height="42" rx="21" fill="#38bdf8"/><text x="378" y="320" text-anchor="middle" fill="#082f49" font-family="Segoe UI,Arial" font-size="18" font-weight="700">CLIENT MOD</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">ItemSucker overview</title>
+  <desc id="desc">A pixel-art collection device detects nearby drops, filters them, moves to them and collects them.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#101722"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#000" flood-opacity=".35"/></filter>
+  </defs>
+  <rect width="1200" height="420" rx="28" fill="url(#bg)"/>
+  <circle cx="178" cy="210" r="126" fill="#35d07f" opacity=".10"/>
+  <circle cx="178" cy="210" r="94" fill="none" stroke="#35d07f" stroke-width="3" stroke-dasharray="8 10" opacity=".8"/>
+  <g filter="url(#shadow)">
+    <rect x="128" y="148" width="100" height="130" fill="#788494"/>
+    <rect x="138" y="158" width="80" height="110" fill="#d7dde5"/>
+    <rect x="153" y="166" width="50" height="89" fill="#202936"/>
+    <rect x="128" y="132" width="34" height="25" fill="#df423c"/>
+    <rect x="194" y="132" width="34" height="25" fill="#df423c"/>
+    <rect x="161" y="249" width="34" height="18" fill="#f0b943"/>
+    <rect x="167" y="180" width="22" height="22" fill="#35d07f"/>
+    <rect x="160" y="186" width="36" height="10" fill="#35d07f"/>
+    <rect x="172" y="211" width="12" height="12" fill="#35d07f"/>
+    <rect x="174" y="232" width="8" height="8" fill="#35d07f"/>
+  </g>
+  <g fill="#35d07f">
+    <rect x="55" y="178" width="12" height="12"/><rect x="78" y="236" width="10" height="10"/>
+    <rect x="278" y="168" width="11" height="11"/><rect x="260" y="250" width="12" height="12"/>
+  </g>
+  <g font-family="Segoe UI,Arial,sans-serif">
+    <text x="370" y="132" fill="#35d07f" font-size="18" font-weight="700" letter-spacing="3">CLIENT-SIDE FABRIC MOD</text>
+    <text x="366" y="192" fill="#f8fafc" font-size="52" font-weight="800">ItemSucker</text>
+    <text x="370" y="235" fill="#cbd5e1" font-size="24">Collect matching dropped items automatically.</text>
+    <text x="370" y="286" fill="#94a3b8" font-size="20">64-block search radius  •  filters  •  Teleport  •  Baritone</text>
+    <rect x="370" y="322" width="235" height="44" rx="22" fill="#35d07f"/>
+    <text x="487" y="351" text-anchor="middle" fill="#0b2418" font-size="18" font-weight="800">DETECT → COLLECT</text>
+  </g>
 </svg>

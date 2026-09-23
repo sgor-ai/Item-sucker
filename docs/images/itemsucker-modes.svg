@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="410" viewBox="0 0 1200 410" role="img" aria-labelledby="title desc">
+  <title id="title">ItemSucker movement modes</title>
+  <desc id="desc">Teleport mode moves instantly while Baritone mode follows a path.</desc>
+  <rect width="1200" height="410" rx="26" fill="#111827"/>
+  <g font-family="Segoe UI,Arial,sans-serif">
+    <text x="60" y="62" fill="#f8fafc" font-size="30" font-weight="800">Choose how ItemSucker reaches a drop</text>
+    <text x="60" y="94" fill="#94a3b8" font-size="17">Both modes use the same 64-block detection and filter rules.</text>
+    <rect x="55" y="130" width="520" height="225" rx="20" fill="#1f2937" stroke="#35d07f" stroke-width="2"/>
+    <rect x="625" y="130" width="520" height="225" rx="20" fill="#1f2937" stroke="#5aa9e6" stroke-width="2"/>
+    <text x="90" y="180" fill="#35d07f" font-size="25" font-weight="800">TELEPORT</text>
+    <text x="660" y="180" fill="#5aa9e6" font-size="25" font-weight="800">BARITONE</text>
+    <text x="90" y="220" fill="#f8fafc" font-size="20" font-weight="700">Instant local movement</text>
+    <text x="660" y="220" fill="#f8fafc" font-size="20" font-weight="700">Path-based movement</text>
+    <text x="90" y="255" fill="#cbd5e1" font-size="16">The player snaps to each target once.</text>
+    <text x="90" y="281" fill="#cbd5e1" font-size="16">Collision checks remain enabled.</text>
+    <text x="660" y="255" fill="#cbd5e1" font-size="16">Baritone walks to matching targets.</text>
+    <text x="660" y="281" fill="#cbd5e1" font-size="16">Requires a compatible Baritone mod.</text>
+    <path d="M100 319h360" stroke="#35d07f" stroke-width="5" stroke-dasharray="4 14" stroke-linecap="round"/>
+    <circle cx="100" cy="319" r="9" fill="#f0b943"/><circle cx="460" cy="319" r="9" fill="#35d07f"/>
+    <path d="M670 319c55-70 130 70 195 0s140-70 210 0" fill="none" stroke="#5aa9e6" stroke-width="5"/>
+    <circle cx="670" cy="319" r="9" fill="#f0b943"/><circle cx="1075" cy="319" r="9" fill="#35d07f"/>
+  </g>
+</svg>

@@ -1,9 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300">
-  <rect width="1200" height="300" rx="20" fill="#0f172a"/>
-  <g font-family="Segoe UI,Arial" text-anchor="middle">
-    <g fill="#1e3a8a" stroke="#60a5fa" stroke-width="2"><rect x="45" y="95" width="210" height="100" rx="16"/><rect x="345" y="95" width="210" height="100" rx="16"/><rect x="645" y="95" width="210" height="100" rx="16"/><rect x="945" y="95" width="210" height="100" rx="16"/></g>
-    <g fill="#fff" font-size="22" font-weight="700"><text x="150" y="137">Detect</text><text x="450" y="137">Filter</text><text x="750" y="137">Move</text><text x="1050" y="137">Collect</text></g>
-    <g fill="#bfdbfe" font-size="16"><text x="150" y="166">Nearby drops</text><text x="450" y="166">Rules + safety</text><text x="750" y="166">Teleport / path</text><text x="1050" y="166">Inventory pickup</text></g>
-    <g stroke="#93c5fd" stroke-width="4" fill="none"><path d="M255 145h90m210 0h90m210 0h90"/></g><g fill="#93c5fd"><path d="m335 145-14-10v20z"/><path d="m635 145-14-10v20z"/><path d="m935 145-14-10v20z"/></g>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">ItemSucker collection flow</title>
+  <desc id="desc">ItemSucker detects item entities, applies whitelist or blacklist rules, moves with Teleport or Baritone and collects the item.</desc>
+  <rect width="1200" height="430" rx="26" fill="#111827"/>
+  <g font-family="Segoe UI,Arial,sans-serif">
+    <text x="60" y="62" fill="#f8fafc" font-size="30" font-weight="800">How one collection cycle works</text>
+    <text x="60" y="94" fill="#94a3b8" font-size="17">The same pipeline is used for Teleport and Baritone modes.</text>
+  </g>
+  <g stroke="#334155" stroke-width="2" fill="#1f2937">
+    <rect x="50" y="140" width="240" height="210" rx="18"/>
+    <rect x="330" y="140" width="240" height="210" rx="18"/>
+    <rect x="610" y="140" width="240" height="210" rx="18"/>
+    <rect x="890" y="140" width="260" height="210" rx="18"/>
+  </g>
+  <g stroke="#35d07f" stroke-width="4" fill="none">
+    <path d="M290 245h40"/><path d="M570 245h40"/><path d="M850 245h40"/>
+  </g>
+  <g fill="#35d07f">
+    <path d="m324 245-14-10v20z"/><path d="m604 245-14-10v20z"/><path d="m884 245-14-10v20z"/>
+  </g>
+  <g font-family="Segoe UI,Arial,sans-serif" text-anchor="middle">
+    <g fill="#35d07f" font-size="15" font-weight="800" letter-spacing="2">
+      <text x="170" y="177">01  DETECT</text><text x="450" y="177">02  FILTER</text>
+      <text x="730" y="177">03  MOVE</text><text x="1020" y="177">04  COLLECT</text>
+    </g>
+    <g fill="#f8fafc" font-size="22" font-weight="700">
+      <text x="170" y="216">Nearby drops</text><text x="450" y="216">Your rules</text>
+      <text x="730" y="216">Choose a mode</text><text x="1020" y="216">Inventory pickup</text>
+    </g>
+    <g fill="#cbd5e1" font-size="16">
+      <text x="170" y="255">Within 64 blocks</text><text x="170" y="281">Item entities only</text>
+      <text x="450" y="255">Whitelist or</text><text x="450" y="281">blacklist</text>
+      <text x="730" y="255">Teleport or</text><text x="730" y="281">Baritone pathing</text>
+      <text x="1020" y="255">Summary notification</text><text x="1020" y="281">Return if enabled</text>
+    </g>
+    <g fill="#35d07f">
+      <circle cx="128" cy="316" r="7"/><circle cx="170" cy="316" r="7"/><circle cx="212" cy="316" r="7"/>
+      <rect x="411" y="307" width="78" height="18" rx="9"/><rect x="690" y="307" width="80" height="18" rx="9"/>
+      <rect x="977" y="307" width="86" height="18" rx="9"/>
+    </g>
   </g>
 </svg>
