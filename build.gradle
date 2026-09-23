@@ -1,0 +1,68 @@
+plugins {
+    id 'net.fabricmc.fabric-loom' version "${loom_version}"
+}
+
+base {
+    archivesName = project.archives_base_name
+    group = project.maven_group
+    version = "$minecraft_version-$mod_version"
+}
+
+repositories {
+    mavenCentral()
+    flatDir { dirs 'libs' }
+
+    // Only needed if you DON'T use the local jar in libs/ (see below).
+    maven {
+        name = 'meteor-maven'
+        url = 'https://maven.meteordev.org/releases'
+    }
+}
+
+dependencies {
+    // Minecraft / loader
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    // Minecraft 26.1+ ships unobfuscated (no more Yarn/Intermediary), and
+    // an unobfuscated environment needs NO "mappings" dependency at all -
+    // declaring one (even loom.officialMojangMappings()) is what throws
+    // "Cannot use Mojang mappings in a non-obfuscated environment" on
+    // modern Loom. Just leave this out entirely.
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+    // Fabric API (needed for client commands + client tick events)
+    // NOTE: check https://modrinth.com/mod/fabric-api for the exact build
+    // that matches minecraft_version above and update fabric_api_version
+    // in gradle.properties accordingly.
+    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
+    // OPTIONAL Baritone integration: only used if the Baritone mod is
+    // actually present at runtime (see BaritoneBridge#isAvailable).
+    // Not bundled into the jar, and the mod works fine without it
+    // (falls back to Teleport move mode).
+    //
+    // Using your own baritone-meteor-26_2.jar dropped in libs/ so the
+    // build doesn't depend on maven.meteordev.org having the exact same
+    // snapshot build. If you'd rather pull it from Maven instead, comment
+    // the line below and uncomment the one after it.
+    compileOnly files('libs/baritone-meteor-26_2.jar')
+    runtimeOnly files('libs/baritone-meteor-26_2.jar')
+    compileOnly files('libs/modmenu-20.0.1.jar')
+    runtimeOnly files('libs/modmenu-20.0.1.jar')
+    // compileOnly "meteordevelopment:baritone:${project.baritone_version}-SNAPSHOT"
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 25
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
+processResources {
+    filesMatching('fabric.mod.json') {
+        expand(version: project.version, mc_version: minecraft_version)
+    }
+}

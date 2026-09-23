@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "itemsucker",
+  "version": "${version}",
+  "name": "ItemSucker",
+  "description": "Automatically collects nearby dropped items with configurable filters, safety checks and optional Baritone pathing.",
+  "authors": [
+    "ItemSucker contributors"
+  ],
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.itemsucker.ItemSuckerMod"
+    ],
+    "modmenu": [
+      "com.itemsucker.ModMenuIntegration"
+    ]
+  },
+  "depends": {
+    "minecraft": "${mc_version}",
+    "fabricloader": ">=0.19.0",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "baritone-meteor": "*"
+    ,"modmenu": "*"
+  }
+}

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300">
+  <rect width="1200" height="300" rx="20" fill="#0f172a"/>
+  <g font-family="Segoe UI,Arial" text-anchor="middle">
+    <g fill="#1e3a8a" stroke="#60a5fa" stroke-width="2"><rect x="45" y="95" width="210" height="100" rx="16"/><rect x="345" y="95" width="210" height="100" rx="16"/><rect x="645" y="95" width="210" height="100" rx="16"/><rect x="945" y="95" width="210" height="100" rx="16"/></g>
+    <g fill="#fff" font-size="22" font-weight="700"><text x="150" y="137">Detect</text><text x="450" y="137">Filter</text><text x="750" y="137">Move</text><text x="1050" y="137">Collect</text></g>
+    <g fill="#bfdbfe" font-size="16"><text x="150" y="166">Nearby drops</text><text x="450" y="166">Rules + safety</text><text x="750" y="166">Teleport / path</text><text x="1050" y="166">Inventory pickup</text></g>
+    <g stroke="#93c5fd" stroke-width="4" fill="none"><path d="M255 145h90m210 0h90m210 0h90"/></g><g fill="#93c5fd"><path d="m335 145-14-10v20z"/><path d="m635 145-14-10v20z"/><path d="m935 145-14-10v20z"/></g>
+  </g>
+</svg>

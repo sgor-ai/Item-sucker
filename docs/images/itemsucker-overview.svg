@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420">
+  <defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#111827"/><stop offset="1" stop-color="#2563eb"/></linearGradient></defs>
+  <rect width="1200" height="420" rx="24" fill="url(#g)"/>
+  <circle cx="150" cy="210" r="82" fill="#38bdf8" opacity=".18"/><circle cx="150" cy="210" r="52" fill="#38bdf8" opacity=".3"/>
+  <path d="M150 125v170M65 210h170" stroke="#e0f2fe" stroke-width="8" opacity=".9"/>
+  <text x="285" y="150" fill="#fff" font-family="Segoe UI,Arial" font-size="54" font-weight="700">ItemSucker</text>
+  <text x="288" y="205" fill="#bfdbfe" font-family="Segoe UI,Arial" font-size="25">Smart item collection for Fabric 26.2</text>
+  <text x="288" y="255" fill="#dbeafe" font-family="Segoe UI,Arial" font-size="21">Teleport or Baritone pathing · whitelist / blacklist · ModMenu GUI</text>
+  <rect x="288" y="292" width="180" height="42" rx="21" fill="#38bdf8"/><text x="378" y="320" text-anchor="middle" fill="#082f49" font-family="Segoe UI,Arial" font-size="18" font-weight="700">CLIENT MOD</text>
+</svg>
