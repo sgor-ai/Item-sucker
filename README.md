@@ -70,32 +70,42 @@ This is the complete supplied screen recording from beginning to end:
 ## Requirements
 
 - Minecraft **26.2**
-- Fabric Loader **0.19.0 or newer**
-- Fabric API for Minecraft 26.2
+- [Fabric API `0.161.0+26.2`](https://github.com/FabricMC/fabric-api/releases/tag/0.161.0%2B26.2)
 - Java **25 or newer**
 
 Optional:
 
-- **Baritone Meteor** for `/itemsucker move baritone`
-- **Mod Menu** for opening ItemSucker from the Mods screen
+- [Baritone Meteor — Minecraft 26.2 branch](https://github.com/MeteorDevelopment/baritone/tree/26.2)
+  for `/itemsucker move baritone`
+- [Mod Menu](https://modrinth.com/mod/modmenu/versions) for opening
+  ItemSucker from the Mods screen
 
-ItemSucker starts without either optional mod. If Baritone is not installed,
+The Fabric **profile/loader is installed automatically by the official Fabric
+Launcher installer** and is not a separate mod JAR requirement. Download the
+installer from [fabricmc.net/use/installer](https://fabricmc.net/use/installer/).
+
+ItemSucker starts without Baritone or Mod Menu. If Baritone is not installed,
 Teleport mode remains available and Baritone mode cannot be selected.
 
 ## Installation
 
-1. Install Fabric Loader for Minecraft 26.2.
-2. Install the matching Fabric API version.
-3. Download or build `itemsucker-26.2-1.0.0.jar`.
-4. Put the ItemSucker JAR in your Minecraft `mods` folder:
+1. Install the Minecraft 26.2 Fabric profile with the
+   [official Fabric installer](https://fabricmc.net/use/installer/).
+2. Download the [Fabric API `0.161.0+26.2` JAR](https://github.com/FabricMC/fabric-api/releases/tag/0.161.0%2B26.2)
+   and put it in your Minecraft `mods` folder.
+3. Download `itemsucker-26.2-1.0.0.jar` from the
+   [latest ItemSucker release](../../releases/latest), or build it from source.
+4. Put the ItemSucker JAR in the same `mods` folder:
    - **Windows:** `%appdata%\.minecraft\mods`
    - **Linux:** `~/.minecraft/mods`
    - **macOS:** `~/Library/Application Support/minecraft/mods`
-5. If you want Baritone movement, put a compatible Baritone Meteor JAR in the
-   same folder.
-6. If you want the Mods-menu configuration screen, install a compatible Mod
-   Menu JAR.
-7. Launch the Fabric profile for Minecraft 26.2.
+5. If you want Baritone movement, build or download the compatible
+   [Baritone 26.2 build](https://github.com/MeteorDevelopment/baritone/tree/26.2)
+   and put its JAR in the same folder.
+6. If you want the Mods-menu configuration screen, install a compatible
+   [Mod Menu release](https://modrinth.com/mod/modmenu/versions) for Minecraft
+   26.2.
+7. Launch the Fabric 26.2 profile.
 
 The source folder itself does not belong in `.minecraft/mods`; Minecraft loads
 the compiled JAR.
