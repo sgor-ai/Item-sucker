@@ -1,5 +1,7 @@
 # ItemSucker
 
+<img src="src/main/resources/icon.png" alt="ItemSucker icon" width="128" height="128">
+
 ![ItemSucker overview](docs/images/itemsucker-overview.svg)
 
 > A focused, standalone Fabric client mod that collects nearby dropped items with configurable filters and movement modes.
